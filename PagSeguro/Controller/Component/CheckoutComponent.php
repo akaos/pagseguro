@@ -133,13 +133,13 @@ class CheckoutComponent extends Component {
 	}
 
 
-	public function addItem($id, $name, $amount, $weight, $quantity = 1) {
+	public function addItem($data) {
 		$this->cart = array_merge($this->cart, array(
-			'itemId' . $this->count => $id,
-			'itemDescription' . $this->count => $name,
-			'itemAmount' . $this->count => str_replace(',', '', number_format($amount, 2)),
-			'itemWeight' . $this->count => $weight,
-			'itemQuantity' . $this->count => $quantity
+			'itemId' . $this->count => $data['id'],
+			'itemDescription' . $this->count => $data['description']
+			'itemAmount' . $this->count => str_replace(',', '', number_format($data['amount'], 2)),
+			'itemWeight' . $this->count => $data['weigth'],
+			'itemQuantity' . $this->count => $data['quantity']
 		));
 		$this->count++;
 	}
